@@ -58,7 +58,7 @@ class _TestBase(object):
 
     def points(self, nr, rng):
         ra = rng.uniform(low=0, high=360, size=nr)
-        dec = rng.uniform(low=-90, high=90, size=nr)
+        dec = np.rad2deg(np.arcsin(rng.uniform(low=-1, high=1, size=nr)))
         return ra, dec
 
     @pytest.mark.parametrize("nr", [10, 100, 1000, 10000])
